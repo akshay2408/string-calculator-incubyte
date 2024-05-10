@@ -1,5 +1,7 @@
 class StringCalculator
   def calculate_sum(string_numbers)
+    return "Invalid Input" if invalid_input?(string_numbers)
+
     raise "Negative numbers not allowed: #{find_negative_numbers(string_numbers)}" if contains_negative_numbers?(string_numbers)
 
     return 0 if string_numbers.empty?
@@ -10,6 +12,10 @@ class StringCalculator
   end
 
   private
+
+  def invalid_input?(numbers)
+    numbers.end_with?(",\n") || numbers.end_with?("\\n")
+  end
 
   def contains_negative_numbers?(numbers)
     numbers.split(/[,\n]/).any? { |num| num.to_i.negative? }
