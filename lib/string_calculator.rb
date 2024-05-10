@@ -14,7 +14,7 @@ class StringCalculator
   private
 
   def invalid_input?(numbers)
-    numbers.end_with?(",\n") || numbers.end_with?("\\n")
+    numbers.end_with?("\\n")
   end
 
   def contains_negative_numbers?(numbers)
