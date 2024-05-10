@@ -50,5 +50,12 @@ describe StringCalculator do
         expect { calculator.calculate_sum('1,-2,3,-4,9,-8') }.to raise_error("Negative numbers not allowed: -2, -4, -8")
       end
     end
+
+    context 'when input ends with \n' do
+      it 'returns "Invalid Input" when input ends with ,\n' do
+        calculator = StringCalculator.new
+        expect(calculator.calculate_sum('1,2,\n')).to eq("Invalid Input")
+      end
+    end
   end
 end
