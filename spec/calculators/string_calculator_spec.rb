@@ -36,5 +36,12 @@ describe StringCalculator do
         expect(calculator.calculate_sum("//;\n1;2;3")).to eq(6)
       end
     end
+
+    context 'when input contains numbers separated by new lines and commas' do
+      it 'returns the sum of all numbers' do
+        calculator = StringCalculator.new
+        expect(calculator.calculate_sum("1\n2,3")).to eq(6)
+      end
+    end
   end
 end
