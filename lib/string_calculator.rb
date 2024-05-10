@@ -3,7 +3,7 @@ class StringCalculator
 
     return 0 if string_numbers.empty?
 
-    numbers = string_numbers.split(/[,\n]/)
-    numbers.sum(&:to_i)
+    numbers = string_numbers.split(",").map(&:to_i)
+    numbers.sum
   end
 end
