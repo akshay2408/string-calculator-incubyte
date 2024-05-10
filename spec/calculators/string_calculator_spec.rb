@@ -43,5 +43,12 @@ describe StringCalculator do
         expect(calculator.calculate_sum("1\n2,3")).to eq(6)
       end
     end
+
+    context 'when input contains negative numbers' do
+      it 'raises an exception with negative numbers' do
+        calculator = StringCalculator.new
+        expect { calculator.calculate_sum('1,-2,3,-4,9,-8') }.to raise_error("Negative numbers not allowed: -2, -4, -8")
+      end
+    end
   end
 end
